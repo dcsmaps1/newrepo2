@@ -1,0 +1,42 @@
+﻿<ArcGIS defaultAssembly="ProAppModule2.dll" defaultNamespace="ProAppModule2" xmlns="http://schemas.esri.com/DADF/Registry" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.esri.com/DADF/Registry file:///C:/Users/srandolph/AppData/Local/Programs/ArcGIS/Pro/bin/ArcGIS.Desktop.Framework.xsd">
+  <AddInInfo id="{c2e4a145-ced7-4cb6-8484-0041d7d139cf}" version="1.0" desktopVersion="2.4.19948">
+    <Name>ProAppModule2</Name>
+    <Description>ProAppModule2 description</Description>
+    <Image>Images\AddinDesktop32.png</Image>
+    <Author>srandolph</Author>
+    <Company>Acme</Company>
+    <Date>1/9/2020 3:35:07 PM, 2020</Date>
+    <Subject>Framework</Subject>
+    <!-- Note subject can be one or more of these topics:
+                    Content, Framework, Editing, Geodatabase, Geometry, Geoprocessing, Layouts, Map Authoring, Map Exploration -->
+  </AddInInfo>
+  <modules>
+    <insertModule id="ProAppModule2_Module" className="Module1" autoLoad="false" caption="Module1">
+      <!-- uncomment to have the control hosted on a separate tab-->
+      <tabs>
+        <!--<tab id="ProAppModule2_Tab1" caption="New Tab">
+          <group refID="ProAppModule2_Group1"/>
+        </tab>-->
+      </tabs>
+      <groups>
+        <!-- comment this out if you have no controls on the Addin tab to avoid
+              an empty group-->
+        <group id="ProAppModule2_Group2" caption="Group 2" appearsOnAddInTab="true">
+          <!-- host controls within groups -->
+          <button refID="ProAppModule2_Dockpane1_ShowButton" size="large" />
+        </group>
+      </groups>
+      <controls>
+        <!-- add your controls here -->
+        <button id="ProAppModule2_Dockpane1_ShowButton" caption="Code Challenge" className="Dockpane1_ShowButton" loadOnClick="true" smallImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonPurple16.png" largeImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonPurple32.png">
+          <tooltip heading="Show Dockpane">Show Dockpane<disabledText /></tooltip>
+        </button>
+      </controls>
+      <dockPanes>
+        <dockPane id="ProAppModule2_Dockpane1" caption="Code Challenge ESRI Add-In" className="Dockpane1ViewModel" dock="float" dockWith="esri_core_contentsDockPane">
+          <content className="Dockpane1View" />
+        </dockPane>
+      </dockPanes>
+    </insertModule>
+  </modules>
+</ArcGIS>

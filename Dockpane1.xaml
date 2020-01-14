@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="ProAppModule2.Dockpane1View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"   
+             xmlns:ui="clr-namespace:ProAppModule2"
+             xmlns:extensions="clr-namespace:ArcGIS.Desktop.Extensions;assembly=ArcGIS.Desktop.Extensions"
+             mc:Ignorable="d" d:DesignWidth="300"
+             d:DataContext="{Binding Path=ui.Dockpane1ViewModel}" Height="386.885">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <extensions:DesignOnlyResourceDictionary Source="pack://application:,,,/ArcGIS.Desktop.Framework;component\Themes\Default.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Loaded="Grid_Loaded" Margin="0,37,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="43*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="49*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="1" LastChildFill="true" KeyboardNavigation.TabNavigation="Local" Margin="0,301,20,38" Grid.ColumnSpan="5">
+            <TextBlock Grid.Column="1" Text="{Binding Heading}" Style="{DynamicResource Esri_TextBlockDockPaneHeader}">
+                <TextBlock.ToolTip>
+                    <WrapPanel Orientation="Vertical" MaxWidth="300">
+                        <TextBlock Text="{Binding Heading}" TextWrapping="Wrap"/>
+                    </WrapPanel>
+                </TextBlock.ToolTip>
+      </TextBlock>
+        </DockPanel>
+        <ComboBox x:Name="cbo_change" HorizontalAlignment="Left" Margin="50,11,0,0" VerticalAlignment="Top" Width="190" SelectionChanged="cbo_change_SelectionChanged" Grid.ColumnSpan="5" Grid.RowSpan="2"/>
+        <ListBox x:Name="lst_fields" HorizontalAlignment="Left" Height="100" Margin="50,118,0,0" Grid.Row="1" VerticalAlignment="Top" Width="190" SelectionChanged="lst_fields_SelectionChanged" MouseDown="lst_fields_MouseDown" Grid.ColumnSpan="5"/>
+        <Button x:Name="btn_go" Content="Go" HorizontalAlignment="Left" Margin="47,276,0,0" Grid.Row="1" VerticalAlignment="Top" Width="39" Click="btn_go_Click" RenderTransformOrigin="0.409,1.59" Grid.Column="4" Height="20"/>
+        <TextBox x:Name="txt_value" HorizontalAlignment="Left" Height="23" Margin="6,239,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="89" TextChanged="txt_value_TextChanged" RenderTransformOrigin="0.404,0.403" Grid.Column="2" Grid.ColumnSpan="3"/>
+        <TextBlock x:Name="txt_blk" HorizontalAlignment="Left" Margin="55,242,0,0" Grid.Row="1" VerticalAlignment="Top" Width="85" Grid.ColumnSpan="2" Height="16"/>
+        <Label Content="Feature Layers" HorizontalAlignment="Left" Margin="45,-12,0,0" VerticalAlignment="Top" Width="110" Height="23" Grid.ColumnSpan="3" Grid.RowSpan="2" FontWeight="Bold" FontFamily="Arial" Foreground="Blue"/>
+        <Label Content="Fields" HorizontalAlignment="Left" Margin="45,96,0,0" Grid.Row="1" VerticalAlignment="Top" Width="74" Height="23" FontWeight="Bold" FontFamily="Arial" Foreground="Blue"/>
+        <TextBlock x:Name="txt_cnt" Grid.Column="4" HorizontalAlignment="Left" Margin="4,-7,0,0" Text="cnt" VerticalAlignment="Top" Width="80" Height="17" Foreground="Blue"/>
+    </Grid>
+</UserControl>
